@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Mavenproject3 {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int a=0;
+        int b=0;
+        int c=0;
+        for (int i = 0; i < 3; i++) {
+            String str=in.next();
+            if(str.charAt(1)=='<'){
+                if(str.charAt(2)=='A')
+                    a++;
+                else if(str.charAt(2)=='B')
+                    b++;
+                else
+                    c++;
+            }else{
+                if(str.charAt(0)=='A')
+                    a++;
+                else if(str.charAt(0)=='B')
+                    b++;
+                else
+                    c++;
+            }
+        }
+        if(a==c){
+            System.out.println("Impossible");
+        }else{
+            char[]arr=new char[3];
+            arr[a]='A';
+            arr[b]='B';
+            arr[c]='C';
+            System.out.print(arr[0]+""+arr[1]+""+arr[2]);
+        }
+    }
+}

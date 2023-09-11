@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Mavenproject6 {
+
+    public static long gcd(long a,long b){
+        if(b==0)
+            return a;
+        else{
+            return gcd(b, a%b);
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int x=in.nextInt();
+        int y=in.nextInt();
+        long []arr1 = new long[x];
+        long []arr2 = new long[y];
+        long []sol  =  new long[y];
+        
+        for (int i = 0; i < x; i++) {
+            arr1[i]=in.nextLong();
+        }
+        for (int i = 0; i < y; i++) {
+            arr2[i]=in.nextLong();
+        }
+        long solution=0;
+        Arrays.sort(arr1);
+        for (int i = 1; i < x; i++) {
+            solution=gcd(solution, arr1[i]-arr1[i-1]);
+        }
+        for (int i = 0; i < y; i++) {
+            sol[i]=gcd(solution, arr1[0]+arr2[i]);
+        }
+        for (int i = 0; i < sol.length; i++) {
+            System.out.print(sol[i]+" ");
+        }
+    }
+}

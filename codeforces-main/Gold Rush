@@ -1,0 +1,31 @@
+import java.util.*;
+import java.util.Scanner;
+ 
+public class Problems1 {
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int tr=in.nextInt();
+        for (int k = 0; k < tr; k++) {
+            int n=in.nextInt(), m=in.nextInt(), sol=0;
+            Queue<Integer>que=new LinkedList<Integer>();
+            HashSet<Integer>set=new HashSet<>();
+            que.add(n);
+            while (!que.isEmpty()) {
+                int front=que.poll();
+                if(front==m){
+                    sol=1;
+                    break;
+                }
+                if(!set.contains(front)){
+                    set.add(front);
+                    if((front%3==0)&&front!=0){
+                    que.add(front/3); 
+                    que.add(front*2/3);
+                    }
+                }
+            }
+            if (sol==1)System.out.println("YES");
+            else System.out.println("NO");
+        }
+    }
+}

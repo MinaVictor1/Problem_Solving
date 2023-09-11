@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Mavenproject8 {
+    
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int q=in.nextInt();
+        for (int i = 0; i < q; i++) {
+            int n=in.nextInt();
+            int t=in.nextInt();
+            int []arr1=new int[n];
+            int []arr2=new int[n];
+            for (int j = 0; j < n; j++) {
+                arr1[j]=in.nextInt()+j;
+            }
+            for (int j = 0; j < n; j++) {
+                arr2[j]=in.nextInt();
+            }
+            int sol=-1;
+            int index=-1;
+            int ent=-1;
+            for (int j = 0; j < n; j++) {
+                if(arr1[j]<=t){
+                    if(arr2[j]>ent){
+                        index=j;
+                        sol=arr1[j];
+                        ent=arr2[j];
+                    }
+                }
+            }
+            if(index==-1)
+                System.out.println(index);
+            else
+                System.out.println(index+1);
+            
+        }
+    }
+}

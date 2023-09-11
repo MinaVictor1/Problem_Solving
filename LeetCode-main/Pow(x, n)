@@ -1,0 +1,13 @@
+class Solution {
+   public static double myPow(double x, int y) {
+        if (y == 0)
+            return 1;
+        double p=myPow(x, y / 2);
+        if (y % 2 == 0)
+            return p * p;
+        else if(y > 0)
+            return x * p * p;
+        else
+            return (p*p)/x;
+    }
+}

@@ -1,0 +1,25 @@
+import java.util.Scanner;
+ 
+public class Problems1 {
+ 
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int tr=in.nextInt();
+        for (int k = 0; k < tr; k++) {
+            int num=in.nextInt();
+            long ski1=2147483647,ski2=2147483647,ski12=2147483647;
+            for (int i = 0; i < num; i++) {
+                int time=in.nextInt();
+                String str=in.next();
+                if(str.equals("10")){ski1=Math.min(ski1, time);}
+                if(str.equals("01")){ski2=Math.min(ski2, time);}
+                if(str.equals("11")){ski12=Math.min(ski12, time);}
+            }
+            if(Math.min(ski1+ski2, ski12)==2147483647)
+                System.out.println("-1");
+            else{
+                System.out.println(Math.min(ski1+ski2, ski12));
+            }
+        }
+    }
+}

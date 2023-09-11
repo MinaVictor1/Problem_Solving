@@ -1,0 +1,16 @@
+class Solution {
+     public static int countPalindromicSubsequence(String s) {
+        int count=0;
+        for (int i = 0; i < 26; i++) {
+            char ch = (char) (i + 'a');
+            int start=s.indexOf(ch);
+            int end=s.lastIndexOf(ch);
+            HashSet<Character>set=new HashSet<>();
+            for (int j = start+1; j < end; j++) {
+                set.add(s.charAt(j));
+            }
+            count+=set.size();
+        }
+        return count;
+    }
+}

@@ -1,0 +1,29 @@
+import java.util.Scanner;
+ 
+public class Problems1 {
+ 
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int tr=in.nextInt();
+        for (int k = 0; k < tr; k++) {
+           int len=in.nextInt();
+           int []a=new int[len];
+            for (int i = 0; i < len; i++) {
+                a[i]=in.nextInt();
+            }
+            int maxLength = 0;
+            int currentLength = 0;
+            for (int i = 0; i < a.length; i++) {
+                if (a[i] == 0) {
+                    currentLength++;
+                } else {
+                    maxLength = Math.max(maxLength, currentLength);
+                    currentLength = 0;
+                }
+            }
+            maxLength = Math.max(maxLength, currentLength);
+            System.out.println(maxLength);
+ 
+        }
+    }
+}

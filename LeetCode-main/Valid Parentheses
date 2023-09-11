@@ -1,0 +1,26 @@
+class Solution {
+     public boolean arepair(Character s,Character e){
+        if(s=='('&&e==')')return true;
+        else if(s=='{'&&e=='}')return true;
+        else if(s=='['&&e==']')return true;
+        return false;
+    }
+
+    public boolean isValid(String s) {
+        Stack<Character>sta=new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='('||s.charAt(i)=='['||s.charAt(i)=='{')
+                sta.push(s.charAt(i));
+            else if(s.charAt(i)==')'||s.charAt(i)==']'||s.charAt(i)=='}'){
+                if(sta.isEmpty()||!arepair(sta.peek(), s.charAt(i)))
+                    return false;
+                else
+                    sta.pop();
+            }
+        }
+        if(sta.isEmpty())
+            return true;
+        else
+            return false;
+    }
+}

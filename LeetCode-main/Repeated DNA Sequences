@@ -1,0 +1,22 @@
+class Solution {
+    public List<String> findRepeatedDnaSequences(String s) {
+        HashSet<String>set=new HashSet<>();
+        HashSet<String>List=new HashSet<>();
+        int rem=0;
+        String str="";
+        for (int i = 0; i < s.length(); i++) {
+            str+=String.valueOf(s.charAt(i));
+            if(str.length()==10){
+                if(set.contains(str)){
+                    List.add(str);
+                }
+                
+                set.add(str);
+                str=str.replaceFirst(String.valueOf(s.charAt(rem)), "");
+                rem++;
+            }
+        }
+        List<String> myList = new ArrayList<>(List);
+        return myList;
+    }
+}

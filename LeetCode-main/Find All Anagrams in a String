@@ -1,0 +1,30 @@
+class Solution {
+    public String sort(String input){
+        char[] charArray = input.toCharArray();
+        Arrays.sort(charArray);
+        String sortedString = new String(charArray);
+        return sortedString;
+    }
+    public List<Integer> findAnagrams(String s, String p) {
+        String temp="";
+        
+        List<Integer> sol=new ArrayList<>();
+        
+        p=sort(p);
+        
+        for (int i = 0; i < s.length(); i++) {
+            temp+=String.valueOf(s.charAt(i));
+            if(temp.length()>p.length()){
+                temp=temp.replaceFirst(String.valueOf(temp.charAt(0)), "");
+            }
+            if(temp.length()==p.length()){
+                String str=temp;
+                str=sort(str);
+                if(str.equals(p)){
+                    sol.add(i-(p.length()-1));
+                }
+            }
+        }
+        return sol;
+    }
+}

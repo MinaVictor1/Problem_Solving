@@ -1,0 +1,20 @@
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int size=arr.length;                    //6 
+        int [] big=new int[size];
+        big[size-1]=-1;                        //0 0 0 0 0 -1
+        if(size>=2)                               
+            big[size-2]=arr[size-1];     //      0 0 0 0 1 -1 
+        int biggest=arr[size-1];//                     6
+        for (int i = arr.length-2; i >0; i--) {//i==> 2
+            if(biggest>arr[i]){
+                big[i-1]=biggest;              //0 6 6 6 1 -1
+            }
+            else{                
+                big[i-1]=arr[i];               //0 0 0 6  1 -1
+                biggest=arr[i];
+            }
+        }
+        return big;
+    }
+}

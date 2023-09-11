@@ -1,0 +1,21 @@
+import java.util.Scanner;
+ 
+public class Problems1 {
+ 
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int tr=in.nextInt();
+        for (int k = 0; k < tr; k++) {
+            String str="codeforces";
+        String s=in.next();
+        int i=0, j=0,sol=0;
+ 
+        while (i<str.length()) {            
+            if(str.charAt(i)!=s.charAt(j))
+                sol++;
+            i++; j++;
+        }
+        System.out.println(sol);
+        }
+    }
+}

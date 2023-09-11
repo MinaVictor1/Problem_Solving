@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Mavenproject4 {
+    
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int size=in.nextInt();
+        ArrayList<Integer>arr1=new ArrayList<>();
+        ArrayList<Integer>arr2=new ArrayList<>();
+        ArrayList<Integer>arr3=new ArrayList<>();
+        for (int i = 1; i <= size; i++) {
+            int num=in.nextInt();
+            switch (num) {
+                case 1:
+                    arr1.add(i);
+                    break;
+                case 2:
+                    arr2.add(i);
+                    break;
+                default:
+                    arr3.add(i);
+                    break;
+            }
+        }
+        int min=Math.min(arr1.size(), Math.min(arr2.size(), arr3.size()));
+        System.out.println(min);
+        for (int i = 0; i < min; i++) {
+            System.out.print(arr1.get(i)+" ");
+            System.out.print(arr2.get(i)+" ");
+            System.out.print(arr3.get(i));
+            System.out.println("");
+        }
+    }
+}
